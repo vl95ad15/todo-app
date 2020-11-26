@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Itim', cursive;
+}
+
+html {
+  background: url(https://image.freepik.com/free-photo/old-brown-craft-paper-box-texture-background_55716-1387.jpg)
+    no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#root {
+  width: 100%;
+}
+
+#app-container {
+  width: 70%;
+  margin: auto;
+}
+
+#app-container h1 {
+  text-align: center;
+}
+
+.editor-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row-left {
+  margin-bottom: 10px;
+}
+
+.form-row-left input[type="text"] {
+  background-color: #f9df6e;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+  font-family: 'Itim', cursive;
+}
+
+.form-row-right {
+  float: right;
+  margin-bottom: 10px;
+}
+
+#todo-text {
+  width: 100%;
+}
+
+.item {
+  border-radius: 5px;
+  padding-bottom: 10px;
+  padding: 20px 15px;
+  margin-bottom: 10px;
+  background-color: rgb(201, 201, 201);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.item > h3 {
+  font-weight: 400;
+}
+
+/* .item h3, .item p {
+  font-family: 'Itim', cursive;
+} */
+
+.info-block {
+  display: flex;
+}
+
+.status-panel {
+  flex-grow: 4;
+}
+
+.created-date-panel {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.done-date-panel {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.control-block {
+  text-align: right;
+  padding: 10px;
+}
