@@ -18,6 +18,7 @@ export default function renderTodoList(doc, allTodo) {
     allTodo.forEach((todo) => {
       const todoElement = renderTodoItem(doc, todo);
       todoListElement.append(todoElement);
+      todoListElement.insertBefore(todoElement, todoListElement.childNodes[0]);
     });
   }
 }
