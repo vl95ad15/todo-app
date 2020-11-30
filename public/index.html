@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
 
-    <title>TODO Application</title>
-  </head>
-  <body>
-    <noscript> You need JavaScript to run this application </noscript>
-    <div id="root">
-      <div id="app-container">
-        <div class="edit-form-container">
-          <h1>Create Todo</h1>
-          <div class="editor-form">
-            <form>
-              <div class="form-row-left">
-                <input type="text" name="todo-text" id="todo-text" />
-              </div>
-              <div class="form-row-right">
-                <input type="button" id="add-todo-button" value="Add" />
-                <input type="button" id="clear-form-button" value="Clear" />
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="todo-list-container">
-          <h1>My ToDos</h1>
-          <h2 id="todo-counter">Total Todo Count: 0</h2>
-          <div class="list-filter-container">Filter</div>
-          <div class="todo-list" id="todo-list">
-            <div class="empty-list">
-              Nothing to do
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/buttons.css" />
+
+  <title>TODO Application</title>
+</head>
+
+<body>
+  <noscript> You need JavaScript to run this application </noscript>
+  <div id="root">
+    <div id="app-container">
+      <h1>My ToDos</h1>
+      <div class="edit-form-container">
+        <h2>Create Todo</h2>
+        <div class="editor-form">
+          <form>
+            <div class="form-row-left">
+              <input type="text" name="todo-text" id="todo-text" placeholder="Enter your ToDo..." />
             </div>
+            <div class="form-row-right">
+              <input type="button" id="add-todo-button" value="Add" />
+              <input type="button" id="clear-form-button" value="Clear" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="todo-list-container">
+        <h2 id="todo-counter">Total Todo Count: 0</h2>
+        <div class="list-filter-container">Filter</div>
+        <div class="todo-list" id="todo-list">
+          <div class="empty-list">
+            You have nothing to do
+          </div>
         </div>
       </div>
     </div>
@@ -41,5 +44,6 @@
 
       window.addEventListener("load", () => startApplication(document));
     </script>
-  </body>
+</body>
+
 </html>
