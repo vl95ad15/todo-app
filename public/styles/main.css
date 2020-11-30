@@ -93,3 +93,9 @@ html {
   text-align: right;
   padding: 10px;
 }
+
+.empty-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
