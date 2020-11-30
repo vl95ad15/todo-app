@@ -25,7 +25,10 @@ function formatDateForPanel(prefix, date) {
     date.getMonth() + 1
   }.${date.getFullYear()}`;
 
-  const timePart = `${date.getHours()}:${date.getMinutes()}`;
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  const timePart = `${hours}:${minutes}`;
 
   return `${prefix}: ${datePart} - ${timePart}`;
 }
