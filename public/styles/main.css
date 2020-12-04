@@ -105,5 +105,6 @@ html {
 }
 
 #total-counter-number {
-  color: blueviolet;
+  color: #00ec8a;
+  text-shadow: black 0 0 3px;
 }
