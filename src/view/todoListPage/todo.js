@@ -1,5 +1,5 @@
-import { createElement } from "../helpers.js";
-import todoState from "../model/todoState.js";
+import { createElement } from "../../helpers.js";
+import todoState from "../../model/todoState.js";
 
 function renderTextBlock(doc, todo) {
   const textItem = createElement(doc, "h3");
@@ -61,10 +61,10 @@ function renderInfoBlock(doc, todo) {
   return infoBlock;
 }
 
-function renderButton(doc, actioName, todoId, className, title) {
+function renderButton(doc, actionName, todoId, className, title) {
   const button = createElement(doc, "button", className);
   button.innerHTML = title;
-  button.setAttribute("data-action", actioName);
+  button.setAttribute("data-action", actionName);
   button.setAttribute("data-id", todoId);
 
   return button;

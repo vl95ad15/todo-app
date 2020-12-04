@@ -98,3 +98,12 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+#total-counter-text {
+  color: black;
+  padding-right: 5px;
+}
+
+#total-counter-number {
+  color: blueviolet;
+}

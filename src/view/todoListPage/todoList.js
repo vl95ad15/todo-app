@@ -1,4 +1,4 @@
-import { createElement } from "../helpers.js";
+import { createElement } from "../../helpers.js";
 import renderTodoItem from "./todo.js";
 
 function renderEmptyPlaceholder(doc) {
