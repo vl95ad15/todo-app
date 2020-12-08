@@ -1,6 +1,7 @@
 import todoStorage from "../model/todoStorage.js";
 import renderTodoPage from "../view/todoPage/todoPage.js";
-import renderTodoListPage from "../view/todoListPage/todoListPage.js";
+
+import configureRouter from "../routerConfig.js";
 
 function renderTodoScreen(doc, event) {
   const todoId = event.detail.todoId;
@@ -8,9 +9,11 @@ function renderTodoScreen(doc, event) {
   renderTodoPage(doc, todoStorage.getTodoById(todoId));
 }
 
-function renderListPage(doc) {
+function navigateToListPage(doc) {
   console.log(`Rendering list screen.`);
-  renderTodoListPage(doc, todoStorage.getAllTodo());
+
+  const router = configureRouter(doc, "/");
+  router.navigate("/");
 }
 
 function notifyAboutTodoChange(doc, todoId) {
@@ -78,7 +81,7 @@ export function getTodoEventHandlers(doc) {
   boundRenderListPage =
     boundRenderListPage !== null
       ? boundRenderListPage
-      : renderListPage.bind(null, doc);
+      : navigateToListPage.bind(null, doc);
 
   return [
     {

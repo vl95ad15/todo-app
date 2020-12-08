@@ -4,7 +4,8 @@ import { getTodoInput } from "../helpers.js";
 
 import todoStorage from "../model/todoStorage.js";
 import renderTodoList from "../view/todoListPage/todoList.js";
-import renderTodoPage from "../view/todoPage/todoPage.js";
+
+import configureRouter from "../routerConfig.js";
 
 function addTodoHandler(doc) {
   console.log("Add button clicked");
@@ -35,10 +36,12 @@ function updateTodoList(doc) {
   renderTodoList(doc, allTodo);
 }
 
-function renderTodo(doc, event) {
+function navigateToTodo(doc, event) {
   const todoId = event.detail.todoId;
   console.log(`Rendering todo screen for todo: ${todoId}`);
-  renderTodoPage(doc, todoStorage.getTodoById(todoId));
+
+  const router = configureRouter(doc, "/");
+  router.navigate(`todo/${todoId}`);
 }
 
 function notifyAboutTodoChange(doc) {
@@ -102,7 +105,7 @@ let boundClearFormHandlerTodoItemCreated = null;
 let boundUpdateTodoListTodoItemChanged = null;
 let boundUpdateTotalTodoCountTodoItemDeleted = null;
 let boundUpdateTodoListTodoItemDeleted = null;
-let boundRenderTodo = null;
+let boundNavigateToTodo = null;
 
 export function getListEventHandlers(doc) {
   boundAddTodoHandler = boundAddTodoHandler !== null ? boundAddTodoHandler : addTodoHandler.bind(null, doc);
@@ -123,7 +126,7 @@ export function getListEventHandlers(doc) {
 
   boundUpdateTodoListTodoItemDeleted = boundUpdateTodoListTodoItemDeleted !== null ? boundUpdateTodoListTodoItemDeleted : updateTodoList.bind(null, doc);
 
-  boundRenderTodo = boundRenderTodo !== null ? boundRenderTodo : renderTodo.bind(null, doc);
+  boundNavigateToTodo = boundNavigateToTodo !== null ? boundNavigateToTodo : navigateToTodo.bind(null, doc);
 
   return [
     {
@@ -174,7 +177,7 @@ export function getListEventHandlers(doc) {
     {
       element: doc,
       eventName: "todo-item-shown",
-      handler: boundRenderTodo,
+      handler: boundNavigateToTodo,
     },
   ];
 }
