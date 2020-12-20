@@ -3,6 +3,8 @@ import renderTodoItem from "./todo.js";
 
 import { getListEventHandlers } from "../../events/listEventHandlers.js";
 import { setupEventListeners } from "../../events.js";
+import renderStatisticsPage from "../statistics.js"
+// import configureRouter from "../../routerConfig.js";
 
 function renderAppContainer(doc) {
   const element = createElement(doc, "div");
@@ -73,9 +75,17 @@ function renderTodoTotal(doc, totalCount) {
   return h2;
 }
 
-function renderStatPage(doc) {
+function renderStatistics(doc) {
   const filterDiv = createElement(doc, "div", "list-filter-container");
-  filterDiv.innerHTML = "Show statistics."; // implement as link <a>
+  const statBtn = createElement(doc, "a", "stat-button");
+  statBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    renderStatisticsPage(doc);
+  });
+  statBtn.id = "stat-button";
+  statBtn.href = "#";
+  statBtn.innerHTML = "My ToDos Statistics";
+  filterDiv.append(statBtn);
 
   return filterDiv;
 }
@@ -108,7 +118,7 @@ function renderTodoListContent(doc, allTodo) {
   listContainer.append(renderTitle(doc, "My ToDos"));
 
   listContainer.append(renderTodoTotal(doc, allTodo.length));
-  listContainer.append(renderStatPage(doc));
+  listContainer.append(renderStatistics(doc));
   listContainer.append(renderTodoList(doc, allTodo));
 
   return listContainer;

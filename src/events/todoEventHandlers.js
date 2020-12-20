@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import todoStorage from "../model/todoStorage.js";
 import renderTodoPage from "../view/todoPage/todoPage.js";
 

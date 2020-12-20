@@ -11,13 +11,14 @@ html {
     no-repeat;
   background-position: center top;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 #root {
   width: 100%;
 }
 
-#app-container {
+#app-container, .stat-container {
   width: 70%;
   margin: auto;
 }
@@ -107,4 +108,22 @@ html {
 #total-counter-number {
   color: #00ec8a;
   text-shadow: black 0 0 3px;
+}
+
+.list-filter-container {
+  margin-bottom: 15px;
+}
+
+.stat-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  flex-direction: column;
+
+}
+
+.done, .postponed, .deleted {
+  font-size: larger;
+  padding: 10px 10px;
 }

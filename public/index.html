@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/buttons.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./styles/main.css" />
-  <link rel="stylesheet" href="./styles/buttons.css" />
+    <title>TODO Application</title>
+  </head>
 
-  <title>TODO Application</title>
-</head>
+  <body>
+    <noscript> You need JavaScript to run this application </noscript>
+    <div id="root"></div>
+    <script type="module">
+      import { startApplication } from "../src/main.js";
 
-<body>
-  <noscript> You need JavaScript to run this application </noscript>
-  <div id="root"></div>
-  <script type="module">
-    import { startApplication } from "../src/main.js";
-
-    window.addEventListener("load", () => startApplication(document));
-  </script>
-</body>
-
+      window.addEventListener("load", () => startApplication(document));
+    </script>
+  </body>
 </html>

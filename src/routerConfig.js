@@ -5,6 +5,8 @@ import renderTodoListPage from "./view/todoListPage/todoListPage.js";
 
 import renderTodoPage from "./view/todoPage/todoPage.js";
 
+import renderStatisticsPage from "./view/statistics.js";
+
 let router = null;
 
 export default (doc, appRootPath) => {
@@ -26,7 +28,8 @@ export default (doc, appRootPath) => {
   });
 
   router.add(/^report$/, () => {
-    console.log("=> Navigating to report page");
+    console.log("=> Navigating to statistics page");
+    renderStatisticsPage(doc);
   });
 
   router.config({mode: "history", root: "/"});

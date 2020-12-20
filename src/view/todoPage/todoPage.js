@@ -1,7 +1,6 @@
 import todoState from "../../model/todoState.js";
 
-import { createElement } from "../../helpers.js";
-import { clearRootElement } from "../../helpers.js";
+import { createElement, clearRootElement } from "../../helpers.js";
 
 import { getTodoEventHandlers } from "../../events/todoEventHandlers.js";
 import { setupEventListeners } from "../../events.js";
@@ -30,7 +29,10 @@ function formatDateForPanel(prefix, date) {
     date.getMonth() + 1
   }.${date.getFullYear()}`;
 
-  const timePart = `${date.getHours()}:${date.getMinutes()}`;
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  const timePart = `${hours}:${minutes}`;
 
   return `${prefix}: ${datePart} - ${timePart}`;
 }

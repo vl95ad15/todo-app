@@ -6,6 +6,10 @@ class TodoStorage {
 
     this.currentId = 0;
     this.todoCount = 0;
+
+    this.postponedTodos = 0;
+    this.completedTodos = 0;
+    this.deletedTodos = 0;
   }
 
   createTodo(text) {
@@ -17,6 +21,22 @@ class TodoStorage {
 
   totalTodoCount() {
     return this.todoCount;
+  }
+
+  postponedTodos() {
+    return this.postponedTodos;
+  }
+
+  completedTodos() {
+    return this.completedTodos;
+  }
+
+  deletedTodos() {
+    return this.deletedTodos;
+  }
+
+  resumedTodos() {
+    return this.resumedTodos;
   }
 
   getTodoById(id) {
@@ -34,21 +54,26 @@ class TodoStorage {
   postponeById(id) {
     const todo = this.storage[id];
     todo.postpone();
+    this.postponedTodos += 1;
+    this.resumedTodos -= 1;
   }
 
   resumeById(id) {
     const todo = this.storage[id];
     todo.resume();
+    this.postponedTodos -= 1;
   }
 
   completeById(id) {
     const todo = this.storage[id];
     todo.done();
+    this.completedTodos += 1;
   }
 
   deleteById(id) {
     delete this.storage[id];
     this.todoCount -= 1;
+    this.deletedTodos += 1;
   }
 
   getAllTodo() {
